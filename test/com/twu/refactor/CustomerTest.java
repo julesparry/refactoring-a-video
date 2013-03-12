@@ -15,7 +15,7 @@ public class CustomerTest {
 
     private static final String GOLD_PATH = "test/data";
 
-    private Customer dinsdale = new Customer("Dinsdale Pirhana");
+    private Customer customer = new Customer("Jonny Customer");
 
     private Movie python = new Movie("Monty Python and the Holy Grail", Movie.REGULAR);
     private Movie ran = new Movie("Ran", Movie.REGULAR);
@@ -25,11 +25,11 @@ public class CustomerTest {
 
     @Before
     public void setUpData() {
-        dinsdale.addRental(new Rental(python, 3));
-        dinsdale.addRental(new Rental(ran, 1));
-        dinsdale.addRental(new Rental(la, 2));
-        dinsdale.addRental(new Rental(trek, 1));
-        dinsdale.addRental(new Rental(wallace, 6));
+        customer.addRental(new Rental(python, 3));
+        customer.addRental(new Rental(ran, 1));
+        customer.addRental(new Rental(la, 2));
+        customer.addRental(new Rental(trek, 1));
+        customer.addRental(new Rental(wallace, 6));
     }
 
     @Test
@@ -40,18 +40,18 @@ public class CustomerTest {
 
     @Test
     public void shouldOutputCustomerStatement() throws Exception {
-        verifyOutput(dinsdale.statement(), "output1");
+        verifyOutput(customer.statement(), "output1");
     }
 
     @Test
     public void shouldOutputChangedStatement() throws Exception {
         la.setPriceCode(Movie.REGULAR);
-        verifyOutput(dinsdale.statement(), "outputChange");
+        verifyOutput(customer.statement(), "outputChange");
     }
 
     /*
     public void testHtml() throws Exception {
-        verifyOutput("1st Output", "outputHtml", dinsdale.htmlStatement());
+        verifyOutput("1st Output", "outputHtml", customer.htmlStatement());
     }
     */
 
